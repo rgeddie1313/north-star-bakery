@@ -6,6 +6,7 @@
         content="width=device-width, initial-scale=1.0">
   <title>Contact and Pre-orders | North Star Bakery</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <a href="#main-content">Skip to main content</a>
@@ -32,10 +33,16 @@
     </section>
     <section>
       <h2>Tell us what you need</h2>
-      <p>This practice form demonstrates HTML validation. It has no
+      <p>This practice form checks your entries before showing a confirmation. It has no
         processing service and does not send an order to the bakery.</p>
       <p>Fields labeled required must be completed. For a pre-order,
         include your preferred pickup date. Allergy notes are optional.</p>
+      <aside class="favorite-summary" aria-labelledby="saved-title">
+        <h3 id="saved-title">Your saved favorites</h3>
+        <p id="saved-favorites">Visit the Products page to save favorites.</p>
+        <button id="use-favorites" type="button" hidden>Add favorites to item details</button>
+      </aside>
+      <noscript>This form needs JavaScript for local validation and confirmation; it cannot send an order.</noscript>
       <form id="practice-form">
         <fieldset>
           <legend>Your contact information</legend>
@@ -43,12 +50,12 @@
             <label for="name">Name (required)</label><br>
             <input type="text" id="name" name="name"
                    autocomplete="name" maxlength="100" required>
-          </p>
+          <span class="field-error" id="name-error" aria-live="polite"></span></p>
           <p>
             <label for="email">Email (required)</label><br>
             <input type="email" id="email" name="email"
                    autocomplete="email" required>
-          </p>
+          <span class="field-error" id="email-error" aria-live="polite"></span></p>
         </fieldset>
         <fieldset>
           <legend>Your bakery request</legend>
@@ -59,12 +66,12 @@
               <option value="pre-order">Pre-order</option>
               <option value="question">General question</option>
             </select>
-          </p>
+          <span class="field-error" id="request-type-error" aria-live="polite"></span></p>
           <p>
             <label for="pickup-date">Preferred pickup date</label><br>
             <input type="date" id="pickup-date" name="pickup-date"
                    aria-describedby="pickup-help">
-          </p>
+          <span class="field-error" id="pickup-date-error" aria-live="polite"></span></p>
           <p id="pickup-help">For pre-orders, choose a day the bakery
             is open. Leave blank for a general question.</p>
           <p>
@@ -72,18 +79,18 @@
             <textarea id="details" name="details" rows="5" cols="35"
                       minlength="10" maxlength="1000" required
                       aria-describedby="details-help"></textarea>
-          </p>
+          <span class="field-error" id="details-error" aria-live="polite"></span></p>
           <p id="details-help">Use at least 10 characters. For a pre-order,
             list product names, quantities, and any special requests.</p>
           <p>
             <label for="allergies">Allergy notes (optional)</label><br>
             <textarea id="allergies" name="allergies" rows="3"
                       cols="35" maxlength="500"></textarea>
-          </p>
+          <span class="field-error" id="allergies-error" aria-live="polite"></span></p>
         </fieldset>
         <button type="submit">Submit practice request</button>
-      <p id="form-status" role="status"></p></form>
-<script>document.getElementById("practice-form").addEventListener("submit",function(event){event.preventDefault();document.getElementById("form-status").textContent="Practice request validated. This demonstration does not send an order.";});</script>
+      <p id="form-status" role="status" tabindex="-1"></p></form>
+
     </section>
   </div></main>
   <footer>
