@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Contact and Pre-orders | North Star Bakery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main-content">Skip to main content</a>
+  <header>
+    <a class="brand" href="index.html"><img src="bakery-logo.png" alt="North Star Bakery home"></a>
+    <p>North Star Bakery</p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html" aria-current="page">Contact and Pre-orders</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <h1>Contact and Pre-orders</h1>
+    <div class="sections">
+    <section>
+      <h2>Location and hours</h2>
+      <address>123 Main Street, Your Town</address>
+      <p>Tuesday through Saturday: 7 a.m. to 3 p.m.<br>
+        Sunday: 8 a.m. to noon. Monday: closed.</p>
+    </section>
+    <section>
+      <h2>Tell us what you need</h2>
+      <p>This practice form demonstrates HTML validation. It has no
+        processing service and does not send an order to the bakery.</p>
+      <p>Fields labeled required must be completed. For a pre-order,
+        include your preferred pickup date. Allergy notes are optional.</p>
+      <form id="practice-form">
+        <fieldset>
+          <legend>Your contact information</legend>
+          <p>
+            <label for="name">Name (required)</label><br>
+            <input type="text" id="name" name="name"
+                   autocomplete="name" maxlength="100" required>
+          </p>
+          <p>
+            <label for="email">Email (required)</label><br>
+            <input type="email" id="email" name="email"
+                   autocomplete="email" required>
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Your bakery request</legend>
+          <p>
+            <label for="request-type">Request type (required)</label><br>
+            <select id="request-type" name="request-type" required>
+              <option value="">Choose a request type</option>
+              <option value="pre-order">Pre-order</option>
+              <option value="question">General question</option>
+            </select>
+          </p>
+          <p>
+            <label for="pickup-date">Preferred pickup date</label><br>
+            <input type="date" id="pickup-date" name="pickup-date"
+                   aria-describedby="pickup-help">
+          </p>
+          <p id="pickup-help">For pre-orders, choose a day the bakery
+            is open. Leave blank for a general question.</p>
+          <p>
+            <label for="details">Item details or question (required)</label><br>
+            <textarea id="details" name="details" rows="5" cols="35"
+                      minlength="10" maxlength="1000" required
+                      aria-describedby="details-help"></textarea>
+          </p>
+          <p id="details-help">Use at least 10 characters. For a pre-order,
+            list product names, quantities, and any special requests.</p>
+          <p>
+            <label for="allergies">Allergy notes (optional)</label><br>
+            <textarea id="allergies" name="allergies" rows="3"
+                      cols="35" maxlength="500"></textarea>
+          </p>
+        </fieldset>
+        <button type="submit">Submit practice request</button>
+      <p id="form-status" role="status"></p></form>
+<script>document.getElementById("practice-form").addEventListener("submit",function(event){event.preventDefault();document.getElementById("form-status").textContent="Practice request validated. This demonstration does not send an order.";});</script>
+    </section>
+  </div></main>
+  <footer>
+    <p>&copy; North Star Bakery. A neighborhood bakery.</p>
+    <p>Student practice website. Business details are samples.</p>
+  </footer>
+</body>
+</html>
